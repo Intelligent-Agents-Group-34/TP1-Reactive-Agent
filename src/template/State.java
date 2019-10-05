@@ -9,7 +9,7 @@ public class State {
 	private String name;
 	private City city; // Current city
 	private City taskDest; // Destination city of the available task. Null if no task
-	public List<StateAction> actionTable; // List of doable actions at this state
+	public List<StateAction> actionTable; // List of possible actions at this state
 	
 	private double value = 0; // Value of the state
 	private StateAction bestAction = null; // Best action to do at this state
