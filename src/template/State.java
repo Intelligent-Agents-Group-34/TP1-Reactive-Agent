@@ -7,9 +7,12 @@ import logist.topology.Topology.City;
 
 public class State {
 	private String name;
-	private City city;
-	private City taskDest;
-	public List<StateAction> actionTable;
+	private City city; // Current city
+	private City taskDest; // Destination city of the available task. Null if no task
+	public List<StateAction> actionTable; // List of doable actions at this state
+	
+	private double value = 0; // Value of the state
+	private StateAction bestAction = null; // Best action to do at this state
 	
 	public State(String name, City city, City taskDest) {
 		this.name = name;
@@ -32,5 +35,21 @@ public class State {
 
 	public City getTaskDest() {
 		return taskDest;
+	}
+
+	public double getValue() {
+		return value;
+	}
+
+	public void setValue(double value) {
+		this.value = value;
+	}
+
+	public StateAction getBestAction() {
+		return bestAction;
+	}
+
+	public void setBestAction(StateAction bestAction) {
+		this.bestAction = bestAction;
 	}
 }

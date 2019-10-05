@@ -7,11 +7,11 @@ import logist.topology.Topology.City;
 
 public class StateAction {
 	private String name;
-	private boolean pickUp;
+	private boolean pickUp; // Whether it is pickup task action or not (move)
 	private double reward;
-	private State state;
-	private City dest;
-	public Map<State, Double> transitionTable;
+	private State state; // Current state when starting the action
+	private City dest; // Destination city of the task or the move
+	public Map<State, Double> transitionTable; // Associate each state with the probability to transition into it
 	
 	public StateAction(String name, boolean pickUp, double reward, State state, City dest) {
 		this.name = name;
