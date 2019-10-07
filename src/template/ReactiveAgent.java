@@ -25,11 +25,12 @@ public class ReactiveAgent implements ReactiveBehavior {
 	public void setup(Topology topology, TaskDistribution td, Agent agent) {
 		this.numActions = 0;
 		this.myAgent = agent;
+		double discountFactor = agent.readProperty("discount-factor", Double.class, 0.5);
 		
 		this.stateSpace = new ArrayList<State>();
 		int costPerKm = agent.vehicles().get(0).costPerKm();
 		this.createStates(topology, td, costPerKm);
-		this.computeBestActionList(0.5);
+		this.computeBestActionList(discountFactor);
 		this.printBestActions();
 	}
 
